@@ -1,0 +1,30 @@
+import numpy as np
+
+aa = np.random.randint(1, 100, size=(2,8)).tolist()
+A = np.array(aa)
+print(A.shape)
+print(A.shape[0])
+print(A.shape[1])
+print(A)
+
+max = A[0, 0]
+subMax = [0,0]
+for i in range(A.shape[0]):
+    for j in range(A.shape[1]):
+        if A[i, j] > max:
+            max = A[i, j]
+        if A[i, j] > subMax[i]:
+          subMax[i] = A[i, j]
+
+print('\nAll max:', max)
+print('SubMax 0:', subMax[0])
+print('SubMax 1:', subMax[1])
+
+B = A.reshape(2, 2, 4)
+print(B.shape)
+print(B)
+
+C = B.copy()
+C[:, :, 2:4] = B[:, :, 0:2]
+C[:, :, 0:2] = B[:, :, 2:4]
+print(C)
